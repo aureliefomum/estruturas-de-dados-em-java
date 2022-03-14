@@ -9,6 +9,21 @@ public class ListaEncadeada <T> {
         //set entry point node to null
         this.referenciaEntrada = null;
     }
+
+    public vod add(T conteudo){
+        No <T> novoNo = new No<>(conteudo);
+        if(this.isEmpty()){
+            referenciaEntrada = novoNo;
+            return ;
+        }
+        No<T> noAuxiliar = referenciaEntrada;
+        //run for loop until you get to the end of the list, which is the last node
+        for(int i = 0; i< this.size()-1; i++){
+            noAuxiliar = noAuxiliar.getProximo();
+        }
+        //once you get to end of list add your new node(novoNo)
+        noAuxiliar.setProximoNo(novoNo);
+    }
    // create size method, returns length of list
 public int size(){
         int tamanhoLista = 0;
