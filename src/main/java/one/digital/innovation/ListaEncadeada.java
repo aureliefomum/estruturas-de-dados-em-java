@@ -19,10 +19,13 @@ public class ListaEncadeada <T> {
         No<T> noAuxiliar = referenciaEntrada;
         //run for loop until you get to the end of the list, which is the last node
         for(int i = 0; i< this.size()-1; i++){
-            noAuxiliar = noAuxiliar.getProximo();
+            noAuxiliar = noAuxiliar.getProximoNo();
         }
         //once you get to end of list add your new node(novoNo)
         noAuxiliar.setProximoNo(novoNo);
+    }
+    public T get(int index){
+        return getNo(index).getConteudo();
     }
 
     private No<T> getNo(int index){
