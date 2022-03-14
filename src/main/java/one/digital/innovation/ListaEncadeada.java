@@ -10,7 +10,7 @@ public class ListaEncadeada <T> {
         this.referenciaEntrada = null;
     }
 
-    public vod add(T conteudo){
+    public void add(T conteudo){
         No <T> novoNo = new No<>(conteudo);
         if(this.isEmpty()){
             referenciaEntrada = novoNo;
@@ -23,6 +23,18 @@ public class ListaEncadeada <T> {
         }
         //once you get to end of list add your new node(novoNo)
         noAuxiliar.setProximoNo(novoNo);
+    }
+
+    private No<T> getNo(int index){
+
+        validaIndice(index);
+        No<T> noAuxiliar = referenciaEntrada;
+        No<T> noRetorno = null;
+        for(int i = 0; i< this.size()-1; i++){
+            noRetorno = noAuxiliar;
+            noAuxiliar = noAuxiliar.getProximo();
+        }
+     return noRetorno;
     }
    // create size method, returns length of list
 public int size(){
@@ -46,6 +58,17 @@ referenciaAux = referenciaAux.getProximoNo();
 
         return tamanhoLista;
 }
+
+private void validaIndice(int index){
+    if(index >= size()){
+        int ultimoIndice = size() - 1
+        throw new IndexOutOfBoundsException("Não existe conteúdo no indice " + index + " desta lista. Esta lista só vai até o indice " + ultimoIndice + "." );
+    }
+}
+
+
+
+
     //create isEmpty method
  public boolean isEmpty(){
         return referenciaEntrada == null;
