@@ -24,6 +24,7 @@ public class ListaEncadeada <T> {
         //once you get to end of list add your new node(novoNo)
         noAuxiliar.setProximoNo(novoNo);
     }
+
     public T get(int index){
         return getNo(index).getConteudo();
     }
@@ -38,6 +39,18 @@ public class ListaEncadeada <T> {
             noAuxiliar = noAuxiliar.getProximo();
         }
      return noRetorno;
+    }
+
+    public T remove(int index){
+        No <T> noParaRemover = this.getNo(index);
+        //Check if you are removing first node, if yes, assign it to entry point node
+        if(index == 0){
+            referenciaEntrada = noParaRemover.getProximoNo();
+            return noParaRemover.getConteudo();
+        }
+        No<T> noAnterior = getNo(index-1);
+        noAnterior.setProximoNo(noParaRemover.getProximoNo());
+        return noParaRemover.getConteudo();
     }
    // create size method, returns length of list
 public int size(){
