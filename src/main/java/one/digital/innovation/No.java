@@ -47,7 +47,7 @@ public class No <T> {
                 ")";
 
         if(proximoNo != null){
-            str += "->" + proximoNo.toString()
+            str += "->" + proximoNo.toString();
         }else{
             str += "->null";
         }

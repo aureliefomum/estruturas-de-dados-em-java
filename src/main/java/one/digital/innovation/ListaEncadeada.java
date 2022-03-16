@@ -13,9 +13,11 @@ public class ListaEncadeada <T> {
     public void add(T conteudo){
         No <T> novoNo = new No<>(conteudo);
         if(this.isEmpty()){
+            //take new item(novoNo) and make it point to first item(referenciaEntrada) a
             referenciaEntrada = novoNo;
             return ;
         }
+        //take head((NoAuxiliar) make it point to new item(referenciaEntrada which has novoNo)
         No<T> noAuxiliar = referenciaEntrada;
         //run for loop until you get to the end of the list, which is the last node
         for(int i = 0; i< this.size()-1; i++){
@@ -34,9 +36,9 @@ public class ListaEncadeada <T> {
         validaIndice(index);
         No<T> noAuxiliar = referenciaEntrada;
         No<T> noRetorno = null;
-        for(int i = 0; i< this.size()-1; i++){
+        for(int i = 0; i<= index; i++){
             noRetorno = noAuxiliar;
-            noAuxiliar = noAuxiliar.getProximo();
+            noAuxiliar = noAuxiliar.getProximoNo();
         }
      return noRetorno;
     }
@@ -77,7 +79,7 @@ referenciaAux = referenciaAux.getProximoNo();
 
 private void validaIndice(int index){
     if(index >= size()){
-        int ultimoIndice = size() - 1
+        int ultimoIndice = size() - 1;
         throw new IndexOutOfBoundsException("Não existe conteúdo no indice " + index + " desta lista. Esta lista só vai até o indice " + ultimoIndice + "." );
     }
 }
@@ -95,7 +97,7 @@ private void validaIndice(int index){
         String strRetorno = "";
         No <T> noAuxiliar = referenciaEntrada;
         for (int i = 0; i <this.size(); i++){
-            strRetorno += "No{conteudo" + noAuxiliar.getConteudo() + "}--->";
+            strRetorno += "No{conteudo " + noAuxiliar.getConteudo() + "}--->";
             noAuxiliar = noAuxiliar.getProximoNo();
         }
                 strRetorno += "null";
